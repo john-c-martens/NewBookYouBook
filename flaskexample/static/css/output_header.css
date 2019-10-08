@@ -1,0 +1,26 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: table;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-image: url(../img/sky_2.jpg);
+  background-size: cover;
+}
+
+td {
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+table {
+  border-spacing: 10px;
+}

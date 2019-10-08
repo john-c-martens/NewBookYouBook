@@ -1,0 +1,111 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" > 
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename='css/output_cover.css') }}" rel="stylesheet" type="text/css">
+
+    <title>New Book, You Book</title>
+  </head>
+
+<body>
+
+<main  role="main">
+      
+<img src="{{ url_for('static',filename='img/logo_2.jpg') }}" alt="4948. sx318 " style="width:150px;" align="right" hspace="15"/>
+<h1 style="color:#000080" align="center">Your recommendations</h1>
+<a href="newbookyoubook.xyz" style="color:#000080" align = "right"><h4 align="center">(Or click here to rate more books!)</h4></a> 
+<img src="{{ url_for('static',filename='img/flying_pig_3.png') }}" alt="4948. sx318 " style="width:50px;" align="left" hspace="40"/><br><br>
+
+<div class="tableFixHead">
+<table style="color:#FF0000;width:100%" align="right" class="center">
+  <thead>  
+  <tr>
+    <th>Recommendation</th>
+    <th>Most Similar To</th>
+    <th>Find It!</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href ="{{ urlres[0] }}"><img src= "{{ coverres[0] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ titleres[0] }} &#010; Author(s): {{ authorsres[0] }} &#010; Goodreads rating: {{ ratingres[0] }} &#010; Number of ratings: {{ nratingsres[0] }} &#010; Blurb: {{ blurbres[0] }} &#010;&#010; Click the image to go to the Goodreads page for the book." /></a></td>
+    <td><a href ="{{ mostsimurlres[0] }}" style="color:#FF0000;">{{ mostsimres[0] }}</a></td>
+    <td><a href ="https://www.worldcat.org/search?qt=worldcat_org_all&q={{ titleres[0] }}+{{ authorsres[0] }}" style="color:#FF0000;" target="_blank">Library Near Me</a> | <a href ="https://www.amazon.com/s?k={{ titleres[0] }}+by+{{ authorsres[0] }}" style="color:#FF0000;" target="_blank">Amazon</a> </td>
+  </tr>
+  <tr>
+    <td><a href ="{{ urlres[1] }}"><img src= "{{ coverres[1] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ titleres[1] }} &#010; Author(s): {{ authorsres[1] }} &#010; Goodreads rating: {{ ratingres[1] }} &#010; Number of ratings: {{ nratingsres[1] }} &#010; Blurb: {{ blurbres[1] }} &#010;&#010; Click the image to go to the Goodreads page for the book." /></a></td>
+    <td><a href ="{{ mostsimurlres[1] }}" style="color:#FF0000;">{{ mostsimres[1] }}</a></td>
+    <td><a href ="https://www.worldcat.org/search?qt=worldcat_org_all&q={{ titleres[1] }}+{{ authorsres[1] }}" style="color:#FF0000;" target="_blank">Library Near Me</a> | <a href ="https://www.amazon.com/s?k={{ titleres[1] }}+by+{{ authorsres[1] }}" style="color:#FF0000;" target="_blank">Amazon</a> </td>
+  </tr>
+  <tr>
+    <td><a href ="{{ urlres[2] }}"><img src= "{{ coverres[2] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ titleres[2] }} &#010; Author(s): {{ authorsres[2] }} &#010; Goodreads rating: {{ ratingres[2] }} &#010; Number of ratings: {{ nratingsres[2] }} &#010; Blurb: {{ blurbres[2] }} &#010;&#010; Click the image to go to the Goodreads page for the book." /></a></td>
+    <td><a href ="{{ mostsimurlres[2] }}" style="color:#FF0000;">{{ mostsimres[2] }}</a></td>
+    <td><a href ="https://www.worldcat.org/search?qt=worldcat_org_all&q={{ titleres[2] }}+{{ authorsres[2] }}" style="color:#FF0000;" target="_blank">Library Near Me</a> | <a href ="https://www.amazon.com/s?k={{ titleres[2] }}+by+{{ authorsres[2] }}" style="color:#FF0000;" target="_blank">Amazon</a> </td>
+  </tr>
+  <tr>
+    <td><a href ="{{ urlres[3] }}"><img src= "{{ coverres[3] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ titleres[3] }} &#010; Author(s): {{ authorsres[3] }} &#010; Goodreads rating: {{ ratingres[3] }} &#010; Number of ratings: {{ nratingsres[3] }} &#010; Blurb: {{ blurbres[3] }} &#010;&#010; Click the image to go to the Goodreads page for the book." /></a></td>
+    <td><a href ="{{ mostsimurlres[3] }}" style="color:#FF0000;">{{ mostsimres[3] }}</a></td>
+    <td><a href ="https://www.worldcat.org/search?qt=worldcat_org_all&q={{ titleres[3] }}+{{ authorsres[3] }}" style="color:#FF0000;" target="_blank">Library Near Me</a> | <a href ="https://www.amazon.com/s?k={{ titleres[3] }}+by+{{ authorsres[3] }}" style="color:#FF0000;" target="_blank">Amazon</a> </td>
+  </tr>
+  <tr>
+    <td><a href ="{{ urlres[4] }}"><img src= "{{ coverres[4] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ titleres[4] }} &#010; Author(s): {{ authorsres[4] }} &#010; Goodreads rating: {{ ratingres[4] }} &#010; Number of ratings: {{ nratingsres[4] }} &#010; Blurb: {{ blurbres[4] }} &#010;&#010; Click the image to go to the Goodreads page for the book." /></a></td>
+    <td><a href ="{{ mostsimurlres[4] }}" style="color:#FF0000;">{{ mostsimres[4] }}</a></td>
+    <td><a href ="https://www.worldcat.org/search?qt=worldcat_org_all&q={{ titleres[4] }}+{{ authorsres[4] }}" style="color:#FF0000;" target="_blank">Library Near Me</a> | <a href ="https://www.amazon.com/s?k={{ titleres[4] }}+by+{{ authorsres[4] }}" style="color:#FF0000;" target="_blank">Amazon</a> </td>
+  </tr>
+  <tr>
+    <td><a href ="{{ urlres[5] }}"><img src= "{{ coverres[5] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ titleres[5] }} &#010; Author(s): {{ authorsres[5] }} &#010; Goodreads rating: {{ ratingres[5] }} &#010; Number of ratings: {{ nratingsres[5] }} &#010; Blurb: {{ blurbres[5] }} &#010;&#010; Click the image to go to the Goodreads page for the book." /></a></td>
+    <td><a href ="{{ mostsimurlres[5] }}" style="color:#FF0000;">{{ mostsimres[5] }}</a></td>
+    <td><a href ="https://www.worldcat.org/search?qt=worldcat_org_all&q={{ titleres[5] }}+{{ authorsres[5] }}" style="color:#FF0000;" target="_blank">Library Near Me</a> | <a href ="https://www.amazon.com/s?k={{ titleres[5] }}+by+{{ authorsres[5] }}" style="color:#FF0000;" target="_blank">Amazon</a> </td>
+  </tr>
+  <tr>
+    <td><a href ="{{ urlres[6] }}"><img src= "{{ coverres[6] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ titleres[6] }} &#010; Author(s): {{ authorsres[6] }} &#010; Goodreads rating: {{ ratingres[6] }} &#010; Number of ratings: {{ nratingsres[6] }} &#010; Blurb: {{ blurbres[6] }} &#010;&#010; Click the image to go to the Goodreads page for the book." /></a></td>
+    <td><a href ="{{ mostsimurlres[6] }}" style="color:#FF0000;">{{ mostsimres[6] }}</a></td>
+    <td><a href ="https://www.worldcat.org/search?qt=worldcat_org_all&q={{ titleres[6] }}+{{ authorsres[6] }}" style="color:#FF0000;" target="_blank">Library Near Me</a> | <a href ="https://www.amazon.com/s?k={{ titleres[6] }}+by+{{ authorsres[6] }}" style="color:#FF0000;" target="_blank">Amazon</a> </td>
+  </tr>
+  <tr>
+    <td><a href ="{{ urlres[7] }}"><img src= "{{ coverres[7] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ titleres[7] }} &#010; Author(s): {{ authorsres[7] }} &#010; Goodreads rating: {{ ratingres[7] }} &#010; Number of ratings: {{ nratingsres[7] }} &#010; Blurb: {{ blurbres[7] }} &#010;&#010; Click the image to go to the Goodreads page for the book." /></a></td>
+    <td><a href ="{{ mostsimurlres[7] }}" style="color:#FF0000;">{{ mostsimres[7] }}</a></td>
+    <td><a href ="https://www.worldcat.org/search?qt=worldcat_org_all&q={{ titleres[7] }}+{{ authorsres[7] }}" style="color:#FF0000;" target="_blank">Library Near Me</a> | <a href ="https://www.amazon.com/s?k={{ titleres[7] }}+by+{{ authorsres[7] }}" style="color:#FF0000;" target="_blank">Amazon</a> </td>
+  </tr>
+  <tr>
+    <td><a href ="{{ urlres[8] }}"><img src= "{{ coverres[8] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ titleres[8] }} &#010; Author(s): {{ authorsres[8] }} &#010; Goodreads rating: {{ ratingres[8] }} &#010; Number of ratings: {{ nratingsres[8] }} &#010; Blurb: {{ blurbres[8] }} &#010;&#010; Click the image to go to the Goodreads page for the book." /></a>"</td>
+    <td><a href ="{{ mostsimurlres[8] }}" style="color:#FF0000;">{{ mostsimres[8] }}</a></td>
+    <td><a href ="https://www.worldcat.org/search?qt=worldcat_org_all&q={{ titleres[8] }}+{{ authorsres[8] }}" style="color:#FF0000;" target="_blank">Library Near Me</a> | <a href ="https://www.amazon.com/s?k={{ titleres[8] }}+by+{{ authorsres[8] }}" style="color:#FF0000;" target="_blank">Amazon</a> </td>
+  </tr>
+  <tr>
+    <td><a href ="{{ urlres[9] }}"><img src= "{{ coverres[9] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ titleres[9] }} &#010; Author(s): {{ authorsres[0] }} &#010; Goodreads rating: {{ ratingres[9] }} &#010; Number of ratings: {{ nratingsres[9] }} &#010; Blurb: {{ blurbres[9] }} &#010;&#010; Click the image to go to the Goodreads page for the book." /></a></td>
+    <td><a href ="{{ mostsimurlres[9] }}" style="color:#FF0000;">{{ mostsimres[9] }}</a></td>
+    <td><a href ="https://www.worldcat.org/search?qt=worldcat_org_all&q={{ titleres[9] }}+{{ authorsres[9] }}" style="color:#FF0000;" target="_blank">Library Near Me</a> | <a href ="https://www.amazon.com/s?k={{ titleres[9] }}+by+{{ authorsres[9] }}" style="color:#FF0000;" target="_blank">Amazon</a> </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+
+</main>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+-->
+
+    <script src="{{ url_for('static',filename='js/jquery-3.3.1.slim.min.js') }}"></script>
+    <script>window.jQuery || document.write("<script src='{{ url_for('static',filename='js/jquery-3.3.1.slim.min.js') }}'><\/script>")</script>
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+
+</body>
+</html
+
+

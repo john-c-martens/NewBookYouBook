@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Bootstrap CSS -->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" > 
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename='css/carousel.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/ul.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/stars.css') }}" rel="stylesheet" type="text/css"> 
+    <link href="{{ url_for('static',filename='css/stars_2.css') }}" rel="stylesheet" type="text/css"> 
+
+    <title>New Book, You Book</title>
+  </head>
+<body>
+<main  role="main">
+    <!--<form  action="/output" method="GET">-->
+    <form  action="/output" method="GET" id="mainbutton">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+	  <li data-target="#myCarousel" data-slide-to="3"></li>
+	  <li data-target="#myCarousel" data-slide-to="4"></li>
+	  <li data-target="#myCarousel" data-slide-to="5"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide" src="{{ url_for('static',filename='img/sky.JPG') }}" alt="First slide">
+            <div class="container">
+              <div class="carousel-caption"><br>
+<img src="{{ url_for('static',filename='img/logo_2.jpg') }}" alt="4948. sx318 " align="right" style="width:180px;" /><br>
+        <p style="color:#000080" align="left"> Rate as many books as you like. We'll recommend similar, lesser-known books based on your preferences.</p>
+<br>
+<br>
+                <a href ="{{ rurls[0] }}"><img src= "{{ rcovers[0] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[0] }};   Author(s): {{ rauthors[0] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[1] }}"><img src= "{{ rcovers[1] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[1] }};   Author(s): {{ rauthors[1] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[2] }}"><img src= "{{ rcovers[2] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[2] }};   Author(s): {{ rauthors[2] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[3] }}"><img src= "{{ rcovers[3] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[3] }};   Author(s): {{ rauthors[3] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[4] }}"><img src= "{{ rcovers[4] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[4] }};   Author(s): {{ rauthors[4] }}" /></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- <form  action="/index" method="GET"> -->
+        <div class="form-group">
+&nbsp;&nbsp;
+	  <span class="rate1">
+    		<input type="radio" id="star5" name="rate1" value="5" />
+    		<label for="star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="star4" name="rate1" value="4" />
+    		<label for="star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="star3" name="rate1" value="3" />
+    		<label for="star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="star2" name="rate1" value="2" />
+    		<label for="star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="star1" name="rate1" value="1" />
+    		<label for="star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate2">
+    		<input type="radio" id="2star5" name="rate2" value="5" />
+    		<label for="2star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="2star4" name="rate2" value="4" />
+    		<label for="2star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="2star3" name="rate2" value="3" />
+    		<label for="2star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="2star2" name="rate2" value="2" />
+    		<label for="2star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="2star1" name="rate2" value="1" />
+    		<label for="2star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate3">
+    		<input type="radio" id="3star5" name="rate3" value="5" />
+    		<label for="3star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="3star4" name="rate3" value="4" />
+    		<label for="3star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="3star3" name="rate3" value="3" />
+    		<label for="3star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="3star2" name="rate3" value="2" />
+    		<label for="3star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="3star1" name="rate3" value="1" />
+    		<label for="3star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;
+	  <span class="rate4">
+    		<input type="radio" id="4star5" name="rate4" value="5" />
+    		<label for="4star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="4star4" name="rate4" value="4" />
+    		<label for="4star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="4star3" name="rate4" value="3" />
+    		<label for="4star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="4star2" name="rate4" value="2" />
+    		<label for="4star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="4star1" name="rate4" value="1" />
+    		<label for="4star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;&nbsp;
+	  <span class="rate5">
+    		<input type="radio" id="5star5" name="rate5" value="5" />
+    		<label for="5star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="5star4" name="rate5" value="4" />
+    		<label for="5star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="5star3" name="rate5" value="3" />
+    		<label for="5star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="5star2" name="rate5" value="2" />
+    		<label for="5star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="5star1" name="rate5" value="1" />
+    		<label for="5star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+        </div>
+	<!--</form>-->
+              </div> <!--caption-->
+            </div> <!--container-->
+          </div> <!--item-->
+
+          <div class="carousel-item">
+            <img class="second-slide" src="{{ url_for('static',filename='img/sky.JPG') }}" alt="Second slide">
+            <div class="container">
+              <div class="carousel-caption"><br>
+<img src="{{ url_for('static',filename='img/logo_2.jpg') }}" alt="4948. sx318 " align="right" style="width:180px;" /><br>
+        <p style="color:#000080" align="left"> Rate as many books as you like. We'll recommend similar, lesser-known books based on your preferences.</p>
+<br>
+<br>
+                <a href ="{{ rurls[5] }}"><img src= "{{ rcovers[5] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[5] }};   Author(s): {{ rauthors[5] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[6] }}"><img src= "{{ rcovers[6] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[6] }};   Author(s): {{ rauthors[6] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[7] }}"><img src= "{{ rcovers[7] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[7] }};   Author(s): {{ rauthors[7] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[8] }}"><img src= "{{ rcovers[8] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[8] }};   Author(s): {{ rauthors[8] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[9] }}"><img src= "{{ rcovers[9] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[9] }};   Author(s): {{ rauthors[9] }}" /></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- <form  action="/index" method="GET"> -->
+        <div class="form-group">
+&nbsp;&nbsp;
+	  <span class="rate6">
+    		<input type="radio" id="6star5" name="rate6" value="5" />
+    		<label for="6star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="6star4" name="rate6" value="4" />
+    		<label for="6star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="6star3" name="rate6" value="3" />
+    		<label for="6star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="6star2" name="rate6" value="2" />
+    		<label for="6star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="6star1" name="rate6" value="1" />
+    		<label for="6star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate7">
+    		<input type="radio" id="7star5" name="rate7" value="5" />
+    		<label for="7star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="7star4" name="rate7" value="4" />
+    		<label for="7star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="7star3" name="rate7" value="3" />
+    		<label for="7star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="7star2" name="rate7" value="2" />
+    		<label for="7star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="7star1" name="rate7" value="1" />
+    		<label for="7star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate8">
+    		<input type="radio" id="8star5" name="rate8" value="5" />
+    		<label for="8star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="8star4" name="rate8" value="4" />
+    		<label for="8star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="8star3" name="rate8" value="3" />
+    		<label for="8star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="8star2" name="rate8" value="2" />
+    		<label for="8star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="8star1" name="rate8" value="1" />
+    		<label for="8star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;
+	  <span class="rate9">
+    		<input type="radio" id="9star5" name="rate9" value="5" />
+    		<label for="9star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="9star4" name="rate9" value="4" />
+    		<label for="9star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="9star3" name="rate9" value="3" />
+    		<label for="9star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="9star2" name="rate9" value="2" />
+    		<label for="9star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="9star1" name="rate9" value="1" />
+    		<label for="9star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;&nbsp;
+	  <span class="rate10">
+    		<input type="radio" id="10star5" name="rate10" value="5" />
+    		<label for="10star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="10star4" name="rate10" value="4" />
+    		<label for="10star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="10star3" name="rate10" value="3" />
+    		<label for="10star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="10star2" name="rate10" value="2" />
+    		<label for="10star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="10star1" name="rate10" value="1" />
+    		<label for="10star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+        </div>
+	<!--</form>-->
+              </div> <!--caption-->
+            </div> <!--container-->
+          </div> <!--item-->
+
+          <div class="carousel-item">
+            <img class="third-slide" src="{{ url_for('static',filename='img/sky.JPG') }}" alt="Third slide">
+            <div class="container">
+              <div class="carousel-caption"><br>
+<img src="{{ url_for('static',filename='img/logo_2.jpg') }}" alt="4948. sx318 " align="right" style="width:180px;" /><br>
+        <p style="color:#000080" align="left"> Rate as many books as you like. We'll recommend similar, lesser-known books based on your preferences.</p>
+<br>
+<br>
+                <a href ="{{ rurls[10] }}"><img src= "{{ rcovers[10] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[10] }};   Author(s): {{ rauthors[10] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[11] }}"><img src= "{{ rcovers[11] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[11] }};   Author(s): {{ rauthors[11] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[12] }}"><img src= "{{ rcovers[12] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[12] }};   Author(s): {{ rauthors[12] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[13] }}"><img src= "{{ rcovers[13] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[13] }};   Author(s): {{ rauthors[13] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[14] }}"><img src= "{{ rcovers[14] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[14] }};   Author(s): {{ rauthors[14] }}" /></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- <form  action="/index" method="GET"> -->
+        <div class="form-group">
+&nbsp;&nbsp;
+	  <span class="rate11">
+    		<input type="radio" id="11star5" name="rate11" value="5" />
+    		<label for="11star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="11star4" name="rate11" value="4" />
+    		<label for="11star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="11star3" name="rate11" value="3" />
+    		<label for="11star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="11star2" name="rate11" value="2" />
+    		<label for="11star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="11star1" name="rate11" value="1" />
+    		<label for="11star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate12">
+    		<input type="radio" id="12star5" name="rate12" value="5" />
+    		<label for="12star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="12star4" name="rate12" value="4" />
+    		<label for="12star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="12star3" name="rate12" value="3" />
+    		<label for="12star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="12star2" name="rate12" value="2" />
+    		<label for="12star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="12star1" name="rate12" value="1" />
+    		<label for="12star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate13">
+    		<input type="radio" id="13star5" name="rate13" value="5" />
+    		<label for="13star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="13star4" name="rate13" value="4" />
+    		<label for="13star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="13star3" name="rate13" value="3" />
+    		<label for="13star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="13star2" name="rate13" value="2" />
+    		<label for="13star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="13star1" name="rate13" value="1" />
+    		<label for="13star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;
+	  <span class="rate14">
+    		<input type="radio" id="14star5" name="rate14" value="5" />
+    		<label for="14star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="14star4" name="rate14" value="4" />
+    		<label for="14star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="14star3" name="rate14" value="3" />
+    		<label for="14star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="14star2" name="rate14" value="2" />
+    		<label for="14star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="14star1" name="rate14" value="1" />
+    		<label for="14star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;&nbsp;
+	  <span class="rate15">
+    		<input type="radio" id="15star5" name="rate15" value="5" />
+    		<label for="15star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="15star4" name="rate15" value="4" />
+    		<label for="15star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="15star3" name="rate15" value="3" />
+    		<label for="15star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="15star2" name="rate15" value="2" />
+    		<label for="15star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="15star1" name="rate15" value="1" />
+    		<label for="15star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+        </div>
+	<!--</form>-->
+              </div> <!--caption-->
+            </div> <!--container-->
+          </div> <!--item-->
+
+          <div class="carousel-item">
+            <img class="fourth-slide" src="{{ url_for('static',filename='img/sky.JPG') }}" alt="Fourth slide">
+            <div class="container">
+              <div class="carousel-caption"><br>
+<img src="{{ url_for('static',filename='img/logo_2.jpg') }}" alt="4948. sx318 " align="right" style="width:180px;" /><br>
+        <p style="color:#000080" align="left"> Rate as many books as you like. We'll recommend similar, lesser-known books based on your preferences.</p>
+<br>
+<br>
+                <a href ="{{ rurls[15] }}"><img src= "{{ rcovers[15] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[15] }};   Author(s): {{ rauthors[15] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[16] }}"><img src= "{{ rcovers[16] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[16] }};   Author(s): {{ rauthors[16] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[17] }}"><img src= "{{ rcovers[17] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[17] }};   Author(s): {{ rauthors[17] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[18] }}"><img src= "{{ rcovers[18] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[18] }};   Author(s): {{ rauthors[18] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[19] }}"><img src= "{{ rcovers[19] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[19] }};   Author(s): {{ rauthors[19] }}" /></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- <form  action="/index" method="GET"> -->
+        <div class="form-group">
+&nbsp;&nbsp;
+	  <span class="rate16">
+    		<input type="radio" id="16star5" name="rate16" value="5" />
+    		<label for="16star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="16star4" name="rate16" value="4" />
+    		<label for="16star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="16star3" name="rate16" value="3" />
+    		<label for="16star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="16star2" name="rate16" value="2" />
+    		<label for="16star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="16star1" name="rate16" value="1" />
+    		<label for="16star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate17">
+    		<input type="radio" id="17star5" name="rate17" value="5" />
+    		<label for="17star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="17star4" name="rate17" value="4" />
+    		<label for="17star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="17star3" name="rate17" value="3" />
+    		<label for="17star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="17star2" name="rate17" value="2" />
+    		<label for="17star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="17star1" name="rate17" value="1" />
+    		<label for="17star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate18">
+    		<input type="radio" id="18star5" name="rate18" value="5" />
+    		<label for="18star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="18star4" name="rate18" value="4" />
+    		<label for="18star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="18star3" name="rate18" value="3" />
+    		<label for="18star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="18star2" name="rate18" value="2" />
+    		<label for="18star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="18star1" name="rate18" value="1" />
+    		<label for="18star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;
+	  <span class="rate19">
+    		<input type="radio" id="19star5" name="rate19" value="5" />
+    		<label for="19star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="19star4" name="rate19" value="4" />
+    		<label for="19star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="19star3" name="rate19" value="3" />
+    		<label for="19star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="19star2" name="rate19" value="2" />
+    		<label for="19star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="19star1" name="rate19" value="1" />
+    		<label for="19star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;&nbsp;
+	  <span class="rate20">
+    		<input type="radio" id="20star5" name="rate20" value="5" />
+    		<label for="20star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="20star4" name="rate20" value="4" />
+    		<label for="20star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="20star3" name="rate20" value="3" />
+    		<label for="20star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="20star2" name="rate20" value="2" />
+    		<label for="20star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="20star1" name="rate20" value="1" />
+    		<label for="20star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+        </div>
+	<!--</form>-->
+              </div> <!--caption-->
+            </div> <!--container-->
+          </div> <!--item-->
+
+          <div class="carousel-item">
+            <img class="fifth-slide" src="{{ url_for('static',filename='img/sky.JPG') }}" alt="Fifth slide">
+            <div class="container">
+              <div class="carousel-caption"><br>
+<img src="{{ url_for('static',filename='img/logo_2.jpg') }}" alt="4948. sx318 " align="right" style="width:180px;" /><br>
+        <p style="color:#000080" align="left"> Rate as many books as you like. We'll recommend similar, lesser-known books based on your preferences.</p>
+<br>
+<br>
+                <a href ="{{ rurls[20] }}"><img src= "{{ rcovers[20] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[20] }};   Author(s): {{ rauthors[20] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[21] }}"><img src= "{{ rcovers[21] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[21] }};   Author(s): {{ rauthors[21] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[22] }}"><img src= "{{ rcovers[22] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[22] }};   Author(s): {{ rauthors[22] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[23] }}"><img src= "{{ rcovers[23] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[23] }};   Author(s): {{ rauthors[23] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[24] }}"><img src= "{{ rcovers[24] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[24] }};   Author(s): {{ rauthors[24] }}" /></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- <form  action="/index" method="GET"> -->
+        <div class="form-group">
+&nbsp;&nbsp;
+	  <span class="rate21">
+    		<input type="radio" id="21star5" name="rate21" value="5" />
+    		<label for="21star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="21star4" name="rate21" value="4" />
+    		<label for="21star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="21star3" name="rate21" value="3" />
+    		<label for="21star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="21star2" name="rate21" value="2" />
+    		<label for="21star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="21star1" name="rate21" value="1" />
+    		<label for="21star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate22">
+    		<input type="radio" id="22star5" name="rate22" value="5" />
+    		<label for="22star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="22star4" name="rate22" value="4" />
+    		<label for="22star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="22star3" name="rate22" value="3" />
+    		<label for="22star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="22star2" name="rate22" value="2" />
+    		<label for="22star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="22star1" name="rate22" value="1" />
+    		<label for="22star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate23">
+    		<input type="radio" id="23star5" name="rate23" value="5" />
+    		<label for="23star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="23star4" name="rate23" value="4" />
+    		<label for="23star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="23star3" name="rate23" value="3" />
+    		<label for="23star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="23star2" name="rate23" value="2" />
+    		<label for="23star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="23star1" name="rate23" value="1" />
+    		<label for="23star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;
+	  <span class="rate24">
+    		<input type="radio" id="24star5" name="rate24" value="5" />
+    		<label for="24star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="24star4" name="rate24" value="4" />
+    		<label for="24star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="24star3" name="rate24" value="3" />
+    		<label for="24star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="24star2" name="rate24" value="2" />
+    		<label for="24star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="24star1" name="rate24" value="1" />
+    		<label for="24star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;&nbsp;
+	  <span class="rate25">
+    		<input type="radio" id="25star5" name="rate25" value="5" />
+    		<label for="25star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="25star4" name="rate25" value="4" />
+    		<label for="25star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="25star3" name="rate25" value="3" />
+    		<label for="25star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="25star2" name="rate25" value="2" />
+    		<label for="25star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="25star1" name="rate25" value="1" />
+    		<label for="25star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+        </div>
+	<!--</form>-->
+              </div> <!--caption-->
+            </div> <!--container-->
+          </div> <!--item-->
+
+          <div class="carousel-item">
+            <img class="sixth-slide" src="{{ url_for('static',filename='img/sky.JPG') }}" alt="Sixth slide">
+            <div class="container">
+              <div class="carousel-caption"><br>
+<img src="{{ url_for('static',filename='img/logo_2.jpg') }}" alt="4948. sx318 " align="right" style="width:180px;" /><br>
+        <p style="color:#000080" align="left"> Rate as many books as you like. We'll recommend similar, lesser-known books based on your preferences.</p>
+<br>
+<br>
+                <a href ="{{ rurls[25] }}"><img src= "{{ rcovers[25] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[25] }};   Author(s): {{ rauthors[25] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[26] }}"><img src= "{{ rcovers[26] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[26] }};   Author(s): {{ rauthors[26] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[27] }}"><img src= "{{ rcovers[27] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[27] }};   Author(s): {{ rauthors[27] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[28] }}"><img src= "{{ rcovers[28] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[28] }};   Author(s): {{ rauthors[28] }}" /></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href ="{{ rurls[29] }}"><img src= "{{ rcovers[29] }}" alt="4948. sx318 " style="width:126px;" title="Title: {{ rtitles[29] }};   Author(s): {{ rauthors[29] }}" /></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- <form  action="/index" method="GET"> -->
+        <div class="form-group">
+&nbsp;&nbsp;
+	  <span class="rate26">
+    		<input type="radio" id="26star5" name="rate26" value="5" />
+    		<label for="26star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="26star4" name="rate26" value="4" />
+    		<label for="26star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="26star3" name="rate26" value="3" />
+    		<label for="26star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="26star2" name="rate26" value="2" />
+    		<label for="26star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="26star1" name="rate26" value="1" />
+    		<label for="26star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate27">
+    		<input type="radio" id="27star5" name="rate27" value="5" />
+    		<label for="27star5" title="scale: 1-5 (bad-good)">5</label>
+    		<input type="radio" id="27star4" name="rate27" value="4" />
+    		<label for="27star4" title="scale: 1-5 (bad-good)">4</label>
+    		<input type="radio" id="27star3" name="rate27" value="3" />
+    		<label for="27star3" title="scale: 1-5 (bad-good)">3</label>
+    		<input type="radio" id="27star2" name="rate27" value="2" />
+    		<label for="27star2" title="scale: 1-5 (bad-good)">2</label>
+    		<input type="radio" id="27star1" name="rate27" value="1" />
+    		<label for="27star1" title="scale: 1-5 (bad-good)">1</label>
+  	  </span>
+&nbsp;
+	  <span class="rate28">
+    		<input type="radio" id="28star5" name="rate28" value="5" />
+    		<label for="28star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="28star4" name="rate28" value="4" />
+    		<label for="28star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="28star3" name="rate28" value="3" />
+    		<label for="28star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="28star2" name="rate28" value="2" />
+    		<label for="28star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="28star1" name="rate28" value="1" />
+    		<label for="28star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;
+	  <span class="rate29">
+    		<input type="radio" id="29star5" name="rate29" value="5" />
+    		<label for="29star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="29star4" name="rate29" value="4" />
+    		<label for="29star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="29star3" name="rate29" value="3" />
+    		<label for="29star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="29star2" name="rate29" value="2" />
+    		<label for="29star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="29star1" name="rate29" value="1" />
+    		<label for="29star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+&nbsp;&nbsp;
+	  <span class="rate30">
+    		<input type="radio" id="30star5" name="rate30" value="5" />
+    		<label for="30star5" title="scale: 1-5 (bad-good)">5 stars</label>
+    		<input type="radio" id="30star4" name="rate30" value="4" />
+    		<label for="30star4" title="scale: 1-5 (bad-good)">4 stars</label>
+    		<input type="radio" id="30star3" name="rate30" value="3" />
+    		<label for="30star3" title="scale: 1-5 (bad-good)">3 stars</label>
+    		<input type="radio" id="30star2" name="rate30" value="2" />
+    		<label for="30star2" title="scale: 1-5 (bad-good)">2 stars</label>
+    		<input type="radio" id="30star1" name="rate30" value="1" />
+    		<label for="30star1" title="scale: 1-5 (bad-good)">1 star</label>
+  	  </span>
+        </div>
+	<!--</form>-->
+              </div> <!--caption-->
+            </div> <!--container-->
+          </div> <!--item-->
+        </div> <!--inner-->
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next" >
+          <span class="carousel-control-next-icon" aria-hidden="true" ></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div> <!-- slide -->
+
+{% if 'return btnClick()' == false %}
+<p align = "center" id="demo2" style="color:red;"></p>     
+{% else %}
+<p align = "center" id="demo2" style="color:red;"><br></p>
+{% endif %}
+         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<span class = "mybttn">
+<button type="submit" class="button" value='submit request' onclick='return btnClick();'>Go</button>
+      </span>&emsp;&emsp;
+<img src="{{ url_for('static',filename='img/cartoon_hand_3.png') }}" alt="4948. sx318 " style="width:180px;" />
+   <input type="hidden" id="bklist" name="bklist" value="{{ rlist }}" >
+    </form>
+</main>
+
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+-->
+    <script src="{{ url_for('static',filename='js/jquery-3.3.1.slim.min.js') }}"></script>
+    <script>window.jQuery || document.write("<script src='{{ url_for('static',filename='js/jquery-3.3.1.slim.min.js') }}"><\/script>')</script>
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script>
+    function btnClick() {
+    var radios = document.getElementsByTagName('input');
+    var value  = 0;
+    for (var i = 0; i < radios.length; i++) {
+    if (radios[i].type === 'radio' && radios[i].checked) {
+        // get value, set checked flag or do whatever you need to
+        value = radios[i].value + value;       
+    }
+    }
+    if (value > 0) {
+        document.getElementById("demo2").innerHTML = "";
+        return true
+    }
+    else {
+        document.getElementById("demo2").innerHTML = "You must rate at least one book.";
+        return false
+    }
+    }
+    </script>
+    <script>
+    var inp = document.getElementsByTagName('input');
+    for (var i = inp.length-1; i>=0; i--) {
+    if ('radio'===inp[i].type) inp[i].checked = false;
+    }
+    </script>
+  </body>
+</html>
+
+
